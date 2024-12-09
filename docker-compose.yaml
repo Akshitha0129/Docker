@@ -1,0 +1,33 @@
+
+services:
+  frontend:
+    build: TodoApplication/frontend/todo_app
+    ports:
+      - "3000:3000"  
+    networks:
+      - demo
+  backend:
+    build: TodoApplication/backend
+    ports:
+      - "3001:3001" 
+    networks:
+      - demo
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:latest  
+    ports:
+      - "27017:27017"  
+    networks:
+      - demo
+    volumes:
+      - mongo-data:/data/db  
+
+networks:
+  demo:
+    driver: bridge 
+
+volumes:
+  mongo-data:
+    driver: local  # Persist MongoDB data locally
+
