@@ -1,4 +1,4 @@
-#h1 Containerized a MERN Stack Application
+# Containerized a MERN Stack Application
 
 Build and Start the Containers
 To build the Docker containers and start the application, run:
